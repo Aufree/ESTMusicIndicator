@@ -55,7 +55,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'ESTMusicIndicatorView', '0.1'
+pod 'ESTMusicIndicator', '0.1.0'
 ```
 
 Then, run the following command:
