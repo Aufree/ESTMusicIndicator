@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5Gp-Gq-Uwa">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--Music List View Controller-->
+        <scene sceneID="6Np-rP-ywB">
+            <objects>
+                <tableViewController storyboardIdentifier="musicList" hidesBottomBarWhenPushed="YES" id="aK6-Pm-Bva" customClass="MusicListViewController" customModule="ESTMusicIndicator" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="hkc-zX-mZT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <inset key="separatorInset" minX="40" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="musicListCell" rowHeight="57" id="32l-qh-Qur" customClass="MusicListCell" customModule="ESTMusicIndicator" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="320" height="57"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="32l-qh-Qur" id="4eB-I0-c92">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="56.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qmJ-IJ-bSz">
+                                            <rect key="frame" x="0.0" y="0.0" width="40" height="56.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="40" id="SN1-ec-uK9"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.65490196079999996" green="0.65490196079999996" blue="0.65490196079999996" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LBP-2g-UnR">
+                                            <rect key="frame" x="40" y="18" width="270" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="qDx-Zu-Q0f"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.53725490200000003" green="0.53725490200000003" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vxk-82-RDl" customClass="ESTMusicIndicatorView" customModule="ESTMusicIndicator" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="40" height="56.5"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="40" id="1Bm-5L-a1f"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="vxk-82-RDl" firstAttribute="top" secondItem="4eB-I0-c92" secondAttribute="top" id="6pg-kq-bcr"/>
+                                        <constraint firstAttribute="bottom" secondItem="vxk-82-RDl" secondAttribute="bottom" id="EQ2-T8-gc0"/>
+                                        <constraint firstItem="LBP-2g-UnR" firstAttribute="leading" secondItem="qmJ-IJ-bSz" secondAttribute="trailing" id="EVS-cP-ggy"/>
+                                        <constraint firstItem="qmJ-IJ-bSz" firstAttribute="top" secondItem="4eB-I0-c92" secondAttribute="top" id="O61-yM-rJe"/>
+                                        <constraint firstItem="LBP-2g-UnR" firstAttribute="centerY" secondItem="4eB-I0-c92" secondAttribute="centerY" id="cDs-67-fDD"/>
+                                        <constraint firstAttribute="bottom" secondItem="qmJ-IJ-bSz" secondAttribute="bottom" id="ffS-hs-FXj"/>
+                                        <constraint firstItem="vxk-82-RDl" firstAttribute="leading" secondItem="4eB-I0-c92" secondAttribute="leading" id="if3-3T-4mB"/>
+                                        <constraint firstItem="qmJ-IJ-bSz" firstAttribute="leading" secondItem="4eB-I0-c92" secondAttribute="leading" id="z1j-mg-LRF"/>
+                                        <constraint firstAttribute="trailing" secondItem="LBP-2g-UnR" secondAttribute="trailing" constant="10" id="zdz-8n-lqx"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="musicIndicator" destination="vxk-82-RDl" id="Bv6-8u-oSK"/>
+                                    <outlet property="musicNumberLabel" destination="qmJ-IJ-bSz" id="KSJ-fC-NUU"/>
+                                    <outlet property="musicTitleLabel" destination="LBP-2g-UnR" id="d0t-qk-e3w"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="aK6-Pm-Bva" id="oP5-XI-lQx"/>
+                            <outlet property="delegate" destination="aK6-Pm-Bva" id="Y4X-N3-SOe"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="mLE-vb-fge"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G1u-Pt-1Gf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1884" y="386"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="12z-7t-ItW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5Gp-Gq-Uwa" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tX4-px-7Fe">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="aK6-Pm-Bva" kind="relationship" relationship="rootViewController" id="OXg-Eb-xL8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qK9-N3-7b9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1495" y="386"/>
+        </scene>
+    </scenes>
+</document>
