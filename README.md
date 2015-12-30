@@ -1,8 +1,23 @@
+![](http://ww4.sinaimg.cn/large/76dc7f1bjw1ezi2uzethxj21jk09uabz.jpg)
+
+<p align="center">
+<a href="https://weibo.com/jinfali"><img src="https://img.shields.io/badge/contact-@Aufree-orange.svg?style=flat"></a>
+<a href="https://github.com/Aufree/ESTMusicIndicator/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat"></a>
+<a href="https://github.com/Aufree"><img src="https://ga-beacon.appspot.com/UA-70965318-2/ESTMusicIndicator/readme" alt="GA"></a>
+</p>
+
 Cool Animated music indicator view written in Swift.
 
-ESTMusicIndicator is an implementation of NAKPlaybackIndicatorView in Swift for iOS 8.
+ESTMusicIndicator is an implementation of [NAKPlaybackIndicatorView](https://github.com/yujinakayama/NAKPlaybackIndicatorView) in Swift for iOS 8.
 
 > <> Made With :heart: By [The EST Group](http://est-group.org/).
+
+## You may interested in my other project
+
+* [PHPHub-iOS](https://github.com/aufree/phphub-ios) PHPHub for iOS is the universal iPhone and iPad application for PHPHub.
+* [ESTMusicPlayer](https://github.com/Aufree/ESTMusicPlayer) An elegant and simple iOS music player.
+* [ESTCollectionViewDropDownList](https://github.com/Aufree/ESTCollectionViewDropDownList) A demo implementation of a drop down tag list view for iOS.
+* [Hodor](https://github.com/Aufree/Hodor) A simple solution to localize your iOS App quickly.
 
 ## Requirements
 
@@ -124,6 +139,14 @@ Normally the view can be automatically resized to fit its content by:
 * Calling `sizeToFit` in frame-based layout.
 
 Or if you explicitly specify size, the bars will be placed in the center of the view.
+
+## Contact
+
+You can ping me on [Twitter](https://twitter.com/_Paul_King_) or follow me on [Weibo](http://weibo.com/jinfali) If you find an issue.
+
+## Contributing
+
+Thank you for your interest in contributing to Hodor! Your ideas for improving this app are greatly appreciated. The best way to contribute is by submitting a pull request. I'll do my best to respond to you as soon as possible. You can also [submit a new GitHub issue](https://github.com/Aufree/ESTMusicIndicator/issues/new) if you find bugs or have questions.
 
 ## Thanks for
 
