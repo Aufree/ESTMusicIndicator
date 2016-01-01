@@ -33,7 +33,7 @@ ESTMusicIndicator is an implementation of [NAKPlaybackIndicatorView](https://git
 ## Run the Demo
 
 ```bash
-$ open ESTMusicIndicator.xcodeproj
+$ open Example/ESTMusicIndicator.xcodeproj
 ```
 
 ## Installation
@@ -55,7 +55,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'ESTMusicIndicator', '0.1.0'
+pod 'ESTMusicIndicator', '0.1.1'
 ```
 
 Then, run the following command:
