@@ -31,7 +31,7 @@ import UIKit
  
  */
 
-enum ESTMusicIndicatorViewState: Int {
+public enum ESTMusicIndicatorViewState: Int {
      /**
      Stopped state of an indicator view.
      In this state, if an indicator's [hidesWhenStopped]([ESTMusicIndicatorView hidesWhenStopped]) is `YES`, the indicator becomes hidden.
@@ -52,7 +52,7 @@ enum ESTMusicIndicatorViewState: Int {
     case ESTMusicIndicatorViewStatePaused
 }
 
-class ESTMusicIndicatorView: UIView {
+public class ESTMusicIndicatorView: UIView {
 
     /**
      A boolean value that controls whether the receiver is hidden
@@ -67,7 +67,7 @@ class ESTMusicIndicatorView: UIView {
      the receiver will be shown automatically.
      */
     
-    var hidesWhenStopped: Bool = true {
+    public var hidesWhenStopped: Bool = true {
         didSet {
             if state == .ESTMusicIndicatorViewStateStopped {
                 hidden = hidesWhenStopped
@@ -89,7 +89,7 @@ class ESTMusicIndicatorView: UIView {
      The initial value is `ESTMusicIndicatorViewStateStopped`.
      */
     
-    var state: ESTMusicIndicatorViewState = .ESTMusicIndicatorViewStateStopped {
+    public var state: ESTMusicIndicatorViewState = .ESTMusicIndicatorViewStateStopped {
         didSet {
             if state == .ESTMusicIndicatorViewStateStopped {
                 stopAnimating()
@@ -110,12 +110,12 @@ class ESTMusicIndicatorView: UIView {
     private var hasInstalledConstraints: Bool = false
     private var contentView:ESTMusicIndicatorContentView!
     
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
     }
@@ -145,7 +145,7 @@ class ESTMusicIndicatorView: UIView {
 
     // MARK: Auto Layout
     
-    override func updateConstraints() {
+    override public func updateConstraints() {
         if !hasInstalledConstraints {
             addConstraint(NSLayoutConstraint(item: self,
                                         attribute: .CenterX,
@@ -168,17 +168,17 @@ class ESTMusicIndicatorView: UIView {
         super.updateConstraints()
     }
     
-    override func intrinsicContentSize() -> CGSize {
+    override public func intrinsicContentSize() -> CGSize {
         return contentView.intrinsicContentSize()
     }
     
-    override func viewForBaselineLayout() -> UIView {
+    override public func viewForBaselineLayout() -> UIView {
         return contentView
     }
     
     // MARK: Frame-Based Layout
     
-    override func sizeThatFits(size: CGSize) -> CGSize {
+    override public func sizeThatFits(size: CGSize) -> CGSize {
         return intrinsicContentSize()
     }
     
