@@ -8,10 +8,11 @@
 
 import UIKit
 
-class MusicListViewController: UITableViewController {
+class MusicListViewController: UITableViewController, UIGestureRecognizerDelegate {
 
     var indicatorView: ESTMusicIndicatorView!
     var titles: [String]?
+    var startAnimating: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,10 +29,25 @@ class MusicListViewController: UITableViewController {
     
     func createIndicatorView() {
         let screenSize: CGRect = UIScreen.mainScreen().bounds
-        let indicator = ESTMusicIndicatorView.init(frame: CGRect(origin: CGPoint(x: (screenSize.width - 50), y: 0), size: CGSize(width: 50, height: 44)))
-        indicator.hidesWhenStopped = false
-        indicator.tintColor = UIColor.redColor()
-        navigationController?.navigationBar.addSubview(indicator)
+        indicatorView = ESTMusicIndicatorView.init(frame: CGRect(origin: CGPoint(x: (screenSize.width - 50), y: 0), size: CGSize(width: 50, height: 44)))
+        indicatorView.hidesWhenStopped = false
+        indicatorView.tintColor = UIColor.redColor()
+        navigationController?.navigationBar.addSubview(indicatorView)
+        
+        let tap = UITapGestureRecognizer(target: self, action: Selector("didTapIndicator:"))
+        tap.delegate = self
+        indicatorView.addGestureRecognizer(tap)
+    }
+    
+    func didTapIndicator(sender: UITapGestureRecognizer? = nil) {
+        startAnimating = !startAnimating
+        
+        if startAnimating {
+            indicatorView.state = .ESTMusicIndicatorViewStatePlaying
+        } else {
+            indicatorView.state = .ESTMusicIndicatorViewStateStopped
+        }
+        
     }
 
     // MARK: - Table view data source
