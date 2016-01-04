@@ -12,6 +12,10 @@ ESTMusicIndicator is an implementation of [NAKPlaybackIndicatorView](https://git
 
 > <> Made With :heart: By [The EST Group](http://est-group.org/).
 
+<p align="center">
+<img src="https://cloud.githubusercontent.com/assets/5310542/12050743/8b3352ec-af34-11e5-99b8-24577e5475e7.png" width="320" height="150" alt="MusicIndicator"/>
+</p>
+
 ## You may interested in my other project
 
 * [PHPHub-iOS](https://github.com/aufree/phphub-ios) PHPHub for iOS is the universal iPhone and iPad application for PHPHub.
@@ -27,7 +31,7 @@ ESTMusicIndicator is an implementation of [NAKPlaybackIndicatorView](https://git
 ## Screenshots
 
 <p align="center">
-<img src="https://cloud.githubusercontent.com/assets/5310542/12050743/8b3352ec-af34-11e5-99b8-24577e5475e7.png" width="320" height="150" alt="MusicIndicator"/>
+<img src="http://ww1.sinaimg.cn/large/76dc7f1bgw1eznwh2vtipg20ku11277j.gif" width="350" height="667" alt="MusicIndicator"/>
 </p>
 
 ## Run the Demo
