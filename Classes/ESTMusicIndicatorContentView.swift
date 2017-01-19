@@ -183,7 +183,9 @@ class ESTMusicIndicatorContentView: UIView {
     private func startDecayingBarLayer(_ layer: CALayer) {
         let animation: CABasicAnimation = CABasicAnimation(keyPath: "bounds")
         
-        animation.fromValue = NSValue(cgRect:CALayer(layer: layer.presentation()!).bounds)
+        if let presentation = layer.presentation() {
+            animation.fromValue = NSValue(cgRect:CALayer(layer: presentation).bounds)
+        }
         animation.toValue = NSValue(cgRect:layer.bounds)
         animation.duration = kDecayDuration
         animation.timingFunction = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionEaseOut)
