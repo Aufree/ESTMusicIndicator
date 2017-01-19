@@ -13,12 +13,13 @@ class MusicListViewController: UITableViewController, UIGestureRecognizerDelegat
     var indicatorView: ESTMusicIndicatorView!
     var titles: [String]?
     var startAnimating: Bool = false
+    var currentNumber = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Music indicator demo"
-        titles = ["千尋のワルツ", "You Are My Sunshine", "Valder Fields", "Five Hundred Miles", "Old Memory", "A Little Story", "夢のしずく", "空の欠片", "旅立ちの日に…", "letter song"]
+        titles = ["千尋のワルツ", "You Are My Sunshine", "Valder Fields", "Five Hundred Miles", "Old Memory", "A Little Story", "夢のしずく", "空の欠片", "旅立ちの日に…", "letter song", "Five Hundred Miles", "Old Memory", "A Little Story", "夢のしずく", "空の欠片", "旅立ちの日に…", "letter song"]
         tableView.tableFooterView = UIView()
     }
     
@@ -69,6 +70,12 @@ class MusicListViewController: UITableViewController, UIGestureRecognizerDelegat
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MusicListCell
         cell.musicNumber = indexPath.row + 1
         cell.musicTitleLabel.text = titles![indexPath.row]
+        cell.state = .stopped
+        
+        if cell.musicNumber == currentNumber {
+            cell.state = .playing
+        }
+        
         return cell
     }
     
@@ -87,6 +94,7 @@ class MusicListViewController: UITableViewController, UIGestureRecognizerDelegat
         }
         let musicsCell = tableView.cellForRow(at: indexPath) as! MusicListCell
         musicsCell.state = .playing
+        currentNumber = indexPath.row
     }
 
 }
