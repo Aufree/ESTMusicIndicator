@@ -80,8 +80,8 @@ You can check out [this link](http://www.raywenderlich.com/97014) for more infor
 Simple Example:
 
 ```swift
-let indicator = ESTMusicIndicatorView.init(frame: CGRectZero)
-indicator.tintColor = UIColor.redColor()
+let indicator = ESTMusicIndicatorView.init(frame: CGRect.zero)
+indicator.tintColor = .red
 indicator.sizeToFit()
 view.addSubview(indicator)
 ```
@@ -92,19 +92,19 @@ Thus, the view is hidden at this time.
 The view appears and the bars start animation.
 
 ```swift
-indicator.state = .ESTMusicIndicatorViewStatePlaying;
+indicator.state = .playing;
 ```
 
 The bars stop animation and become idle.
 
 ```swift
-indicator.state = .ESTMusicIndicatorViewStatePaused;
+indicator.state = .paused;
 ```
 
 The view becomes hidden.
 
 ```swift
-indicator.state = .ESTMusicIndicatorViewStateStopped;
+indicator.state = .stopped;
 ```
 
 You can use ESTMusicIndicatorView in both code and Storyboard, and it works well with both Auto Layout and frame-based layout.
@@ -112,7 +112,7 @@ You can use ESTMusicIndicatorView in both code and Storyboard, and it works well
 ### Code with Auto Layout
 
 ```swift
-let indicator = ESTMusicIndicatorView.init(frame: CGRectZero)
+let indicator = ESTMusicIndicatorView.init(frame: CGRect.zero)
 indicator.translatesAutoresizingMaskIntoConstraints = false
 view.addSubview(indicator)
 ```
@@ -124,7 +124,7 @@ It will be automatically resized to fit its content.
 ### Code with Frame-Based Layout
 
 ```swift
-let indicator = ESTMusicIndicatorView.init(frame: CGRectZero)
+let indicator = ESTMusicIndicatorView.init(frame: CGRect.zero)
 view.addSubview(indicator)
 indicator.sizeToFit() // Resize itself to fit its content.
 ```
