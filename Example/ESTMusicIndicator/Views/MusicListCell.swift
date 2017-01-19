@@ -14,10 +14,10 @@ class MusicListCell: UITableViewCell {
     @IBOutlet weak var musicTitleLabel: UILabel!
     @IBOutlet weak var musicIndicator: ESTMusicIndicatorView!
     
-    var state: ESTMusicIndicatorViewState = .ESTMusicIndicatorViewStateStopped {
+    var state: ESTMusicIndicatorViewState = .stopped {
         didSet {
             musicIndicator.state = state
-            musicNumberLabel.hidden = state != .ESTMusicIndicatorViewStateStopped
+            musicNumberLabel.isHidden = state != .stopped
         }
     }
     
@@ -32,7 +32,7 @@ class MusicListCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

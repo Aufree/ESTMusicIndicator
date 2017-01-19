@@ -37,22 +37,22 @@ public enum ESTMusicIndicatorViewState: Int {
      In this state, if an indicator's [hidesWhenStopped]([ESTMusicIndicatorView hidesWhenStopped]) is `YES`, the indicator becomes hidden.
      Or if an indicator's [hidesWhenStopped]([ESTMusicIndicatorView hidesWhenStopped]) is `NO`, the indicator shows idle bars.
      */
-    case ESTMusicIndicatorViewStateStopped
+    case stopped
     
     /**
      Playing state of an indicator view.
      In this state, an indicator shows oscillatory animated bars.
      */
-    case ESTMusicIndicatorViewStatePlaying
+    case playing
     
     /**
      Paused state of an indicator view.
      In this state, an indicator shows idle bars.
      */
-    case ESTMusicIndicatorViewStatePaused
+    case paused
 }
 
-public class ESTMusicIndicatorView: UIView {
+open class ESTMusicIndicatorView: UIView {
 
     /**
      A boolean value that controls whether the receiver is hidden
@@ -67,10 +67,10 @@ public class ESTMusicIndicatorView: UIView {
      the receiver will be shown automatically.
      */
     
-    public var hidesWhenStopped: Bool = true {
+    open var hidesWhenStopped: Bool = true {
         didSet {
-            if state == .ESTMusicIndicatorViewStateStopped {
-                hidden = hidesWhenStopped
+            if state == .stopped {
+                isHidden = hidesWhenStopped
             }
         }
     }
@@ -89,20 +89,20 @@ public class ESTMusicIndicatorView: UIView {
      The initial value is `ESTMusicIndicatorViewStateStopped`.
      */
     
-    public var state: ESTMusicIndicatorViewState = .ESTMusicIndicatorViewStateStopped {
+    public var state: ESTMusicIndicatorViewState = .stopped {
         didSet {
-            if state == .ESTMusicIndicatorViewStateStopped {
+            if state == .stopped {
                 stopAnimating()
                 if hidesWhenStopped {
-                    hidden = true
+                    isHidden = true
                 }
             } else {
-                if state == .ESTMusicIndicatorViewStatePlaying {
+                if state == .playing {
                     startAnimating()
                 } else {
                     stopAnimating()
                 }
-                hidden = false
+                isHidden = false
             }
         }
     }
@@ -126,41 +126,45 @@ public class ESTMusicIndicatorView: UIView {
         addSubview(contentView)
         prepareLayoutPriorities()
         setNeedsUpdateConstraints()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationDidEnterBackground:", name: UIApplicationDidEnterBackgroundNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationWillEnterForeground:", name: UIApplicationWillEnterForegroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(UIApplicationDelegate.applicationDidEnterBackground(_:)), name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(UIApplicationDelegate.applicationWillEnterForeground(_:)), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
     }
     
     private func prepareLayoutPriorities() {
         // Custom views should set default values for both orientations on creation,
         // based on their content, typically to NSLayoutPriorityDefaultLow or NSLayoutPriorityDefaultHigh.
-        setContentHuggingPriority(UILayoutPriorityDefaultHigh, forAxis: UILayoutConstraintAxis.Horizontal)
-        setContentHuggingPriority(UILayoutPriorityDefaultHigh, forAxis: UILayoutConstraintAxis.Vertical)
+        setContentHuggingPriority(UILayoutPriorityDefaultHigh, for: UILayoutConstraintAxis.horizontal)
+        setContentHuggingPriority(UILayoutPriorityDefaultHigh, for: UILayoutConstraintAxis.vertical)
         
-        setContentCompressionResistancePriority(UILayoutPriorityDefaultHigh, forAxis: UILayoutConstraintAxis.Horizontal)
-        setContentCompressionResistancePriority(UILayoutPriorityDefaultHigh, forAxis: UILayoutConstraintAxis.Vertical)
+        setContentCompressionResistancePriority(UILayoutPriorityDefaultHigh, for: UILayoutConstraintAxis.horizontal)
+        setContentCompressionResistancePriority(UILayoutPriorityDefaultHigh, for: UILayoutConstraintAxis.vertical)
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
 
     // MARK: Auto Layout
     
-    override public func updateConstraints() {
+    override open var intrinsicContentSize : CGSize {
+        return contentView.intrinsicContentSize
+    }
+    
+    override open func updateConstraints() {
         if !hasInstalledConstraints {
             addConstraint(NSLayoutConstraint(item: self,
-                                        attribute: .CenterX,
-                                        relatedBy: .Equal,
+                                        attribute: .centerX,
+                                        relatedBy: .equal,
                                         toItem: contentView,
-                                        attribute: .CenterX,
+                                        attribute: .centerX,
                                         multiplier: 1.0,
                                         constant: 0.0))
             
             addConstraint(NSLayoutConstraint(item: self,
-                                        attribute: .CenterY,
-                                        relatedBy: .Equal,
+                                        attribute: .centerY,
+                                        relatedBy: .equal,
                                         toItem: contentView,
-                                        attribute: .CenterY,
+                                        attribute: .centerY,
                                         multiplier: 1.0,
                                         constant: 0.0))
             
@@ -169,18 +173,14 @@ public class ESTMusicIndicatorView: UIView {
         super.updateConstraints()
     }
     
-    override public func intrinsicContentSize() -> CGSize {
-        return contentView.intrinsicContentSize()
-    }
-    
-    override public func viewForBaselineLayout() -> UIView {
+    override open func forBaselineLayout() -> UIView {
         return contentView
     }
     
     // MARK: Frame-Based Layout
     
-    override public func sizeThatFits(size: CGSize) -> CGSize {
-        return intrinsicContentSize()
+    override open func sizeThatFits(_ size: CGSize) -> CGSize {
+        return intrinsicContentSize
     }
     
     // MARK: Helpers
@@ -207,13 +207,13 @@ public class ESTMusicIndicatorView: UIView {
     // MARK: Notification
 	
 	@objc
-	private func applicationDidEnterBackground(notification: NSNotification) {
+	private func applicationDidEnterBackground(_ notification: Notification) {
 		stopAnimating()
 	}
 	
 	@objc
-	private func applicationWillEnterForeground(notification: NSNotification) {
-		if state == .ESTMusicIndicatorViewStatePlaying {
+	private func applicationWillEnterForeground(_ notification: Notification) {
+		if state == .playing {
 			startAnimating()
 		}
 	}
