@@ -158,7 +158,7 @@ Thank you for your interest in contributing to Hodor! Your ideas for improving t
 
 ## License
 
-Copyright (c) 2015 Paul King
+Copyright (c) 2017 Paul King
 ---
 
 Released under the [MIT license](https://github.com/Aufree/ESTMusicIndicator/blob/master/LICENSE)

@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "ESTMusicIndicator"
-  s.version      = "0.1.2"
+  s.version      = "0.1.3"
   s.summary      = "Cool Animated music indicator view written in Swift."
 
   s.description  = <<-DESC
