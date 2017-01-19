@@ -81,7 +81,7 @@ Simple Example:
 
 ```swift
 let indicator = ESTMusicIndicatorView.init(frame: CGRectZero)
-indicator.tintColor = UIColor.redColor()
+indicator.tintColor = UIColor.red
 indicator.sizeToFit()
 view.addSubview(indicator)
 ```
@@ -92,19 +92,19 @@ Thus, the view is hidden at this time.
 The view appears and the bars start animation.
 
 ```swift
-indicator.state = .ESTMusicIndicatorViewStatePlaying;
+indicator.state = .playing;
 ```
 
 The bars stop animation and become idle.
 
 ```swift
-indicator.state = .ESTMusicIndicatorViewStatePaused;
+indicator.state = .paused;
 ```
 
 The view becomes hidden.
 
 ```swift
-indicator.state = .ESTMusicIndicatorViewStateStopped;
+indicator.state = .stopped;
 ```
 
 You can use ESTMusicIndicatorView in both code and Storyboard, and it works well with both Auto Layout and frame-based layout.
@@ -158,7 +158,7 @@ Thank you for your interest in contributing to Hodor! Your ideas for improving t
 
 ## License
 
-Copyright (c) 2015 Paul King
+Copyright (c) 2017 Paul King
 ---
 
 Released under the [MIT license](https://github.com/Aufree/ESTMusicIndicator/blob/master/LICENSE)
