@@ -80,8 +80,8 @@ You can check out [this link](http://www.raywenderlich.com/97014) for more infor
 Simple Example:
 
 ```swift
-let indicator = ESTMusicIndicatorView.init(frame: CGRectZero)
-indicator.tintColor = UIColor.red
+let indicator = ESTMusicIndicatorView.init(frame: CGRect.zero)
+indicator.tintColor = .red
 indicator.sizeToFit()
 view.addSubview(indicator)
 ```
@@ -112,7 +112,7 @@ You can use ESTMusicIndicatorView in both code and Storyboard, and it works well
 ### Code with Auto Layout
 
 ```swift
-let indicator = ESTMusicIndicatorView.init(frame: CGRectZero)
+let indicator = ESTMusicIndicatorView.init(frame: CGRect.zero)
 indicator.translatesAutoresizingMaskIntoConstraints = false
 view.addSubview(indicator)
 ```
@@ -124,7 +124,7 @@ It will be automatically resized to fit its content.
 ### Code with Frame-Based Layout
 
 ```swift
-let indicator = ESTMusicIndicatorView.init(frame: CGRectZero)
+let indicator = ESTMusicIndicatorView.init(frame: CGRect.zero)
 view.addSubview(indicator)
 indicator.sizeToFit() // Resize itself to fit its content.
 ```
