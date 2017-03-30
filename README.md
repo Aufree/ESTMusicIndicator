@@ -6,12 +6,19 @@
 <a href="https://github.com/Aufree"><img src="https://ga-beacon.appspot.com/UA-70965318-2/ESTMusicIndicator/readme" alt="GA"></a>
 </p>
 
+<p align="center">
+  <b>Special thanks to the generous sponsorship by:</b>
+  <br><br>
+  <a href="https://www.yousails.com">
+    <img src="https://yousails.com/banners/brand.png" width=350>
+  </a>
+</p>
+
 Cool Animated music indicator view written in Swift.
 
 ESTMusicIndicator is an implementation of [NAKPlaybackIndicatorView](https://github.com/yujinakayama/NAKPlaybackIndicatorView) in Swift for iOS 8.
 
 > - 本人著作的书籍[《Laravel 入门教程》](https://laravel-china.org/laravel-tutorial/5.1)已正式发布，有兴趣的朋友可点击 [此处](https://laravel-china.org/topics/3383) 作进一步了解。
-> - 本项目由 [优帆远扬](http://yousails.com/) 提供技术支持，有需要技术服务或软件开发的朋友可 [跟我联系](mailto:aufree@yousails.com)。
 
 <p align="center">
 <img src="https://cloud.githubusercontent.com/assets/5310542/12050743/8b3352ec-af34-11e5-99b8-24577e5475e7.png" width="320" height="150" alt="MusicIndicator"/>
