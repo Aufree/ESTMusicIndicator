@@ -40,7 +40,7 @@ class MusicListViewController: UITableViewController, UIGestureRecognizerDelegat
         indicatorView.addGestureRecognizer(tap)
     }
     
-    func didTapIndicator(_ sender: UITapGestureRecognizer? = nil) {
+    @objc func didTapIndicator(_ sender: UITapGestureRecognizer? = nil) {
         startAnimating = !startAnimating
         
         if startAnimating {
